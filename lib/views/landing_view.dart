@@ -1,9 +1,10 @@
-import 'package:cat_app/components/landing/Card.dart';
-import 'package:cat_app/controllers/cats.controller.dart';
-import 'package:cat_app/models/Cat.dart';
-import 'package:cat_app/providers/detailsProvider.dart';
-import 'package:cat_app/utils/errorResponse.dart';
-import 'package:cat_app/views/details_view.dart';
+import 'package:catbreeds/components/landing/Card.dart';
+import 'package:catbreeds/controllers/cats.controller.dart';
+import 'package:catbreeds/models/Cat.dart';
+import 'package:catbreeds/providers/detailsProvider.dart';
+import 'package:catbreeds/utils/errorResponse.dart';
+import 'package:catbreeds/utils/textStyles.dart';
+import 'package:catbreeds/views/details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -20,11 +21,6 @@ class _LandingViewState extends State<LandingView> {
   List<Cat> duplicateItems = [];
   TextEditingController searchController = TextEditingController();
   CatsController catsController = CatsController();
-  TextStyle titleTextStyle = const TextStyle(
-      color: Colors.white,
-      fontFamily: 'Nunito',
-      fontSize: 16.0,
-      letterSpacing: 1.0);
   late DetailsProvider detailsProvider;
 
 
@@ -44,8 +40,12 @@ class _LandingViewState extends State<LandingView> {
         items = response["body"];
       });
       for (var item in items) {
-        item.imageUrl ??=
-            await catsController.getCatImage(item.referenceImageId);
+        if(item.imageUrl != null && item.imageUrl == 'loading'){
+          item.imageUrl = await catsController.getCatImage(item.referenceImageId);
+          if(item.id == detailsProvider.getCat?.id){
+            detailsProvider.setCat(item);
+          }
+        }
         setState(() {});
       }
       
@@ -104,7 +104,7 @@ class _LandingViewState extends State<LandingView> {
                               padding: const EdgeInsets.symmetric(
                                   vertical: 5, horizontal: 10),
                               child: infoCard(items[index],
-                                  titleTextStyle: titleTextStyle,
+                                  titleTextStyle: titleTextStyle(fontSize: 1.6 * Get.height / 100),
                                   containTextStyle: TextStyle(
                                       color: const Color.fromARGB(255, 0, 0, 0),
                                       fontFamily: 'Nunito',

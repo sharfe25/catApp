@@ -1,15 +1,12 @@
 import 'dart:collection';
 
-import 'package:cat_app/components/details/DetailAppBar.dart';
-import 'package:cat_app/components/landing/Card.dart';
-import 'package:cat_app/controllers/cats.controller.dart';
-import 'package:cat_app/models/Cat.dart';
-import 'package:cat_app/providers/detailsProvider.dart';
-import 'package:cat_app/utils/errorResponse.dart';
-import 'package:cat_app/utils/textStyles.dart';
+import 'package:catbreeds/components/details/DetailAppBar.dart';
+import 'package:catbreeds/models/Cat.dart';
+import 'package:catbreeds/providers/detailsProvider.dart';
+import 'package:catbreeds/utils/loading.dart';
+import 'package:catbreeds/utils/textStyles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class DetailsView extends StatefulWidget {
@@ -29,22 +26,35 @@ class _DetailsViewState extends State<DetailsView> {
     super.initState();
     detailsProvider = Provider.of<DetailsProvider>(context, listen: false);
     setDetails();
+    detailsProvider.addListener(() {
+      setDetails();
+    });
+  }
+
+  @override
+  void dispose() {
+    detailsProvider.removeListener(() {
+      setDetails();
+    });
+    super.dispose();
   }
 
   void setDetails() {
-    setState(() {
-      cat = detailsProvider.getCat;
-    });
-    catData.addAll({
-      "Origin": cat!.origin,
-      "Intelligence": cat!.intelligence.toString(),
-      "Adaptability": cat!.adaptability.toString(),
-      "Life Span": cat!.lifeSpan.toString(),
-      "Affection Level": cat!.affectionLevel.toString(),
-      "Child Friendly": cat!.childFriendly.toString(),
-      "Dog Friendly": cat!.dogFriendly.toString(),
-      "Health Issues": cat!.healthIssues.toString(),
-    });
+    if (mounted) {
+      setState(() {
+        cat = detailsProvider.getCat;
+      });
+      catData.addAll({
+        "Origin": cat!.origin,
+        "Intelligence": cat!.intelligence.toString(),
+        "Adaptability": cat!.adaptability.toString(),
+        "Life Span": cat!.lifeSpan.toString(),
+        "Affection Level": cat!.affectionLevel.toString(),
+        "Child Friendly": cat!.childFriendly.toString(),
+        "Dog Friendly": cat!.dogFriendly.toString(),
+        "Health Issues": cat!.healthIssues.toString(),
+      });
+    }
   }
 
   Widget itemTile(int index) {
@@ -59,8 +69,7 @@ class _DetailsViewState extends State<DetailsView> {
                     color: const Color.fromARGB(255, 58, 134, 97),
                     fontSize: 1.6 * Get.height / 100))),
         title: Text(catData.keys.elementAt(index),
-            style: containTextStyle(
-                    fontSize: 1.6 * Get.height / 100)));
+            style: containTextStyle(fontSize: 1.6 * Get.height / 100)));
   }
 
   @override
@@ -75,15 +84,19 @@ class _DetailsViewState extends State<DetailsView> {
                         context: context, titleStyle: titleTextStyle()),
                     Padding(
                         padding: const EdgeInsets.all(10),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.network(
-                              cat?.imageUrl ??
-                                  'https://cdn2.thecatapi.com/logos/thecatapi_256xW.png',
-                              width: Get.width * 0.9,
-                              height: Get.width * 0.9,
-                              fit: BoxFit.cover),
-                        )),
+                        child: cat?.imageUrl == 'loading'
+                            ? const LoaderView()
+                            : ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: cat?.imageUrl == null
+                                    ? Image.asset('assets/logo.png',
+                                        width: Get.width * 0.9,
+                                        height: Get.width * 0.9,
+                                        fit: BoxFit.cover)
+                                    : Image.network(cat!.imageUrl!,
+                                        width: Get.width * 0.9,
+                                        height: Get.width * 0.9,
+                                        fit: BoxFit.cover))),
                     Expanded(
                         child: SingleChildScrollView(
                             child: Padding(
