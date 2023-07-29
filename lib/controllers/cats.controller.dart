@@ -28,7 +28,8 @@ class CatsController {
   Future getCatImage(String? referenceImageId) async {
     if (referenceImageId != null) {
       var url = Uri.parse('${Environment.apiUrl}images/$referenceImageId');
-      final res = await http.get(url);
+      final res = await http.get(url,
+        headers: {'x-api-key': 'bda53789-d59e-46cd-9bc4-2936630fde39'});
       if (res.statusCode == 200) {
         final jsonCats = json.decode(res.body);
 
