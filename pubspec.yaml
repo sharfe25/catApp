@@ -1,4 +1,4 @@
-name: cat_app
+name: catbreads
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -41,6 +41,8 @@ dependencies:
   get: ^4.6.5
   font_awesome_flutter: ^10.5.0
   provider: ^6.0.5
+  flutter_launcher_icons: ^0.13.1
+  flutter_spinkit: ^5.2.0
 
 dev_dependencies:
   flutter_test:
@@ -54,10 +56,32 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter_native_splash:
-  color: "#202342"
-  image: assets/img/fullLogoWhite.png
+  color: "#683ab7"
+  image: assets/logo.png
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/icon.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
 
 # The following section is specific to Flutter packages.
 flutter:
@@ -71,6 +95,8 @@ flutter:
   assets:
     - .env.development
     - .env.production
+    - assets/
+    - assets/icon/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

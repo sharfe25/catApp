@@ -9,11 +9,11 @@ TextStyle containTextStyle({double fontSize = 15, Color color = const Color.from
       fontSize: fontSize);
 }
 
-TextStyle titleTextStyle({Color color = Colors.white}) {
+TextStyle titleTextStyle({double fontSize = 16, Color color = Colors.white, }) {
   return TextStyle(
       color: color,
       fontFamily: 'Nunito',
-      fontSize: 16.0,
+      fontSize: fontSize,
       fontWeight: FontWeight.w700,
       letterSpacing: 1.0,
       decoration: TextDecoration.none);
