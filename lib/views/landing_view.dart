@@ -1,10 +1,10 @@
-import 'package:catbreads/components/landing/Card.dart';
-import 'package:catbreads/controllers/cats.controller.dart';
-import 'package:catbreads/models/Cat.dart';
-import 'package:catbreads/providers/detailsProvider.dart';
-import 'package:catbreads/utils/errorResponse.dart';
-import 'package:catbreads/utils/textStyles.dart';
-import 'package:catbreads/views/details_view.dart';
+import 'package:catbreeds/components/landing/Card.dart';
+import 'package:catbreeds/controllers/cats.controller.dart';
+import 'package:catbreeds/models/Cat.dart';
+import 'package:catbreeds/providers/detailsProvider.dart';
+import 'package:catbreeds/utils/errorResponse.dart';
+import 'package:catbreeds/utils/textStyles.dart';
+import 'package:catbreeds/views/details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';

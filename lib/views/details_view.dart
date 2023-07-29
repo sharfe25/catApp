@@ -1,10 +1,10 @@
 import 'dart:collection';
 
-import 'package:catbreads/components/details/DetailAppBar.dart';
-import 'package:catbreads/models/Cat.dart';
-import 'package:catbreads/providers/detailsProvider.dart';
-import 'package:catbreads/utils/loading.dart';
-import 'package:catbreads/utils/textStyles.dart';
+import 'package:catbreeds/components/details/DetailAppBar.dart';
+import 'package:catbreeds/models/Cat.dart';
+import 'package:catbreeds/providers/detailsProvider.dart';
+import 'package:catbreeds/utils/loading.dart';
+import 'package:catbreeds/utils/textStyles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';

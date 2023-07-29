@@ -1,4 +1,4 @@
-import 'package:catbreads/views/landing_view.dart';
+import 'package:catbreeds/views/landing_view.dart';
 import 'package:flutter/material.dart';
 
 class AppState extends StatelessWidget {
