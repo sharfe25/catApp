@@ -1,5 +1,5 @@
-import 'package:cat_app/app.dart';
-import 'package:cat_app/providers/detailsProvider.dart';
+import 'package:catbreads/app.dart';
+import 'package:catbreads/providers/detailsProvider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -1,7 +1,5 @@
-import 'package:cat_app/providers/detailsProvider.dart';
-import 'package:cat_app/views/landing_view.dart';
+import 'package:catbreads/views/landing_view.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class AppState extends StatelessWidget {
   const AppState({super.key});

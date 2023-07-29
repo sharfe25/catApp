@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:cat_app/models/Weight.dart';
+import 'package:catbreads/models/Weight.dart';
 
 Cat catFromJson(String str) => Cat.fromJson(json.decode(str));
 
@@ -50,7 +50,7 @@ class Cat {
         required this.weight,
         required this.id,
         required this.name,
-        this.imageUrl,
+        this.imageUrl = 'loading',
         this.cfaUrl,
         this.vetstreetUrl,
         this.vcahospitalsUrl,
