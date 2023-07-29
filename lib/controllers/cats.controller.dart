@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:catbreads/environment.dart';
-import 'package:catbreads/models/Cat.dart';
+import 'package:catbreeds/environment.dart';
+import 'package:catbreeds/models/Cat.dart';
 import 'package:http/http.dart' as http;
 
 class CatsController {

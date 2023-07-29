@@ -1,4 +1,4 @@
-import 'package:catbreads/models/Cat.dart';
+import 'package:catbreeds/models/Cat.dart';
 import 'package:flutter/material.dart';
 
 class DetailsProvider with ChangeNotifier {

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:catbreads/models/Weight.dart';
+import 'package:catbreeds/models/Weight.dart';
 
 Cat catFromJson(String str) => Cat.fromJson(json.decode(str));
 
