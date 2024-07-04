@@ -2,9 +2,8 @@
 <appcast>
   <channel>
     <title>App Name</title>
-    <link>https://www.banco.com/wps/portal/web/inicio/</link>
     <description>App Description</description>
-    <language>en-us</language>
+    <language>es</language>
     <item>
       <title>Version 4.0.0</title>
       <sparkle:version>4.0.0</sparkle:version>
