@@ -2,13 +2,13 @@
 <appcast>
   <channel>
     <title>App Name</title>
-    <link>https://yourserver.com</link>
+    <link>https://www.bancounion.com/wps/portal/bancounion/web/inicio/</link>
     <description>App Description</description>
     <language>en-us</language>
     <item>
-      <title>Version 2.0.0</title>
-      <sparkle:version>2.0.0</sparkle:version>
-      <sparkle:shortVersionString>2.0.0</sparkle:shortVersionString>
+      <title>Version 4.0.0</title>
+      <sparkle:version>4.0.0</sparkle:version>
+      <sparkle:shortVersionString>4.0.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>4.0.0</sparkle:minimumSystemVersion>
       <sparkle:releaseNotesLink>https://yourserver.com/releasenotes.html</sparkle:releaseNotesLink>
       <enclosure url="https://yourserver.com/app.apk" sparkle:version="2.0.0" sparkle:shortVersionString="2.0.0" type="application/octet-stream" />
